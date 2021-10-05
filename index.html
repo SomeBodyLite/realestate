@@ -319,6 +319,13 @@
   </footer>
 
   <script>
+    var options = {
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric',
+      timezone: 'UTC'
+    };
+    c_date = new Date().toLocaleString("ru", options);
     var startCount = 2; // Количество комментариев без задержки (уже существующих на странице при загрузке)
     var minDelay = 5000; // Время в миллисекундах на минимальное значение рандомной задержки
     var maxDelay = 10000; // Время в миллисекундах на максмальное значение рандомной задержки
@@ -328,7 +335,6 @@
       alert('Неверно указана минимальная задержка');
     }
 
-    debugger;
 
     function dataTemplate(elem) {
       let tr = document.createElement('div');
@@ -359,7 +365,7 @@
             <div class="timeline-Tweet-metadata">
               <a class="timeline-Tweet-timestamp">
                 <time class="dt-updated">
-                  ${elem.date}</time>
+                 `+ c_date + `</time>
               </a>
             </div>
             <ul class="timeline-Tweet-actions" label="Действия с твитом">
@@ -454,7 +460,6 @@
         workers.appendChild(tr);
       });
     }
-
   </script>
 
   <script src="js/main.min.js"></script>
